@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Learn js arrays</title>
+    <!-- python -m SimpleHTTPServer 8000 -->
+  </head>
+  <body onload="init()">
+    <p>Här är lite text</p>
+    <div class="" id="steg1">
+    </div>
+    <p>Det här är grundordningen för dina data. Nu är din uppgift att ta bort data så att element 2 kommer intill element 5.</p>
+    <div class="" id="steg2">
+      <p>Mata in funktionen i textfältet här:</p>
+      <input type="text" name="" value="Funktion här" id="functionString"><button type="button" onclick="getValue("functionString", rearrange)" name="button"></button>
+      <p></p>
+    </div>
+    <p id="test">Testar lite här.</p>
+    <script type="text/javascript">
+    //var arrayLength = 5;
+    //Array med grunddata
+    var baseArray = [1,6,'gris',9,7];
+
+      function init() {
+        createArray(baseArray, "steg1");
+        rearrange();
+      }
+
+      function createArray(inputArray, div) {
+        var targetDiv = document.getElementById(div);
+        for (var i = 0; i < inputArray.length; i++) {
+          var inp = document.createElement('input');
+          inp.value = inputArray[i];
+          targetDiv.appendChild(inp);
+        }
+      }
+
+      function getValue(string, callback) {
+        var arrayFunction = document.getElementById(string);
+        callback(arrayFunction);
+      }
+
+      function rearrange(string) {
+        document.getElementById("test").innerHTML = string;
+      }
+    </script>
+  </body>
+</html>
