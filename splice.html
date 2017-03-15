@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lär dig javascript-arrays</title>
+    <!-- python -m SimpleHTTPServer 8000 -->
+  </head>
+  <body onload="init()">
+    <p>Vill du lära dig hur du flyttar runt kolumnerna i dina data? Här har du chansen.</p>
+    <p>Först kan du öva på funktionen <i>splice</i>. Den kan både ta bort och lägga till värden.
+    Det första argumentet säger vilken position den ska börja på, det andra argumentet hur många som ska tas
+    bort. Om man har med fler argument kommer de att läggas till ens array.</p>
+    <div class="" id="steg1">
+    </div>
+    <p>Det här är grundordningen för dina data. Nu är din uppgift att ta bort data så att element 2 kommer intill element 5.</p>
+    <div class="" id="steg2">
+      <p>Mata in funktionen i textfältet här:</p>
+      <p>splice ( <input type="text" name="" value="2,2,nytt" id="functionString"> ) <button type="button" onclick="getValue('functionString', rearrange)" name="button">Tryck här</button>
+      </p>
+    </div>
+    <p id="test"></p>
+    <script type="text/javascript">
+    //var arrayLength = 5;
+    //Array med grunddata
+    var baseArray = [1,6,'gris',9,2017,7];
+
+      function init() {
+        createArray(baseArray, "steg1");
+        //rearrange();
+      }
+
+      function createArray(inputArray, div) {
+        document.getElementById(div).innerHTML = "";
+        var targetDiv = document.getElementById(div);
+        for (var i = 0; i < inputArray.length; i++) {
+          var inp = document.createElement('input');
+          inp.value = inputArray[i];
+          targetDiv.appendChild(inp);
+        }
+      }
+
+      function getValue(string, callback) {
+        var arrayFunction = document.getElementById(string).value;
+        console.log(arrayFunction);
+        callback(arrayFunction);
+      }
+
+      function rearrange(string) {
+        var string = string.split(",");
+        //console.log(string);
+        var newArray = JSON.parse(JSON.stringify(baseArray));
+        //console.log(newArray);
+        newArray.splice.apply(newArray,string);
+        createArray(newArray,"test");
+        //console.log(newArray);
+      }
+    </script>
+  </body>
+</html>
